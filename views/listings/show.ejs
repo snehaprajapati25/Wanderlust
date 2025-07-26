@@ -93,7 +93,7 @@
                                                 <p class="card-text text-start">
                                                     <%= review.comment %>
                                                 </p>
-                                                <% if (currentUser &&
+                                                <% if (currUser &&
                                                     review.author._id.toString()===currentUser._id.toString()) { %>
                                                     <form class="mb-3" method="POST"
                                                         action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
