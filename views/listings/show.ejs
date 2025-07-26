@@ -2,7 +2,7 @@
 
     <script>
         const mapToken = "<%= mapToken %>";
-        const listing = <%- JSON.stringify(listing) %>;
+        const listing = <% - JSON.stringify(listing) %>;
     </script>
 
     <div class="row">
@@ -93,11 +93,13 @@
                                                 <p class="card-text text-start">
                                                     <%= review.comment %>
                                                 </p>
-
-                                                <form class="mb-3" method="POST"
-                                                    action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-                                                    <button class="btn btn-dark btn-sm">Delete</button>
-                                                </form>
+                                                <% if (currentUser &&
+                                                    review.author._id.toString()===currentUser._id.toString()) { %>
+                                                    <form class="mb-3" method="POST"
+                                                        action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                                                        <button class="btn btn-dark btn-sm">Delete</button>
+                                                    </form>
+                                                    <% } %>
                                             </div>
                                         </div>
 
