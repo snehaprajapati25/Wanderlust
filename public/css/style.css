@@ -1,0 +1,191 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+/* search styling */
+.search-btn{
+        background-color: #fe424d !important;
+        color: #fff !important;
+        border-radius: 25px !important;
+        padding: 0 1rem 0 1rem !important;
+    }
+
+    .search-btn:hover{
+        background-color: #fe424d !important;
+        color: #fff !important;
+    }
+
+    .search-btn i {
+        display: inline;
+        margin-right: 0.5rem;
+    }
+
+    .search-inp{
+        border-radius: 25px !important;
+        padding: 0.5rem 3rem 0.5rem 3rem !important;
+        font-size: 1rem ;
+    }
+
+/* //footer */
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* Cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+    text-align: center;
+}
+
+.card-text p {
+    font-weight: 400 !important;
+    color: #222222;
+}
+
+.listing-link {
+    text-decoration: none !important;
+}
+
+/* Card Effect */
+.card-hover-effect {
+    transition: transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card-hover-effect:hover {
+    transform: scale(0.95);
+    /* Zoom out slightly */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Optional shadow for depth */
+}
+
+/* New Page */
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Edit Page */
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Show Page */
+.show-img {
+    height: 35vh;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.card-text b {
+    font-size: 1.2rem;
+}
+
+.checked {
+    color: orange;
+}
+
+.fa-star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+}
+
+/* to hide radio button */
+.fa-star-rating input {
+    display: none;
+}
+
+.fa-star-rating label {
+    font-size: 1.5rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+    margin-right: 5px;
+}
+  
+.fa-star-rating input:checked~label i,
+.fa-star-rating label:hover i,
+.fa-star-rating label:hover~label i {
+    color: orange;
+}
+
+/* MAP */
+#map { 
+    height: 400px;
+    width: 85vh; 
+}
+
+
