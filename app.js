@@ -24,11 +24,11 @@ const userRouter = require('./routes/user.js');
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// ✅ Enable CORS before routes
-app.use(cors({
-  origin: "http://localhost:5173", // Vite dev server
-  credentials: true // allow cookies/session
-}));
+// // ✅ Enable CORS before routes
+// app.use(cors({
+//   origin: "http://localhost:5173", // Vite dev server
+//   credentials: true // allow cookies/session
+// }));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // For JSON data
@@ -59,7 +59,7 @@ const store = MongoStore.create({
     touchAfter: 24 * 3600,
 })
 
-store.on("error", () =>{
+store.on("error", (err) =>{
     console.log("ERROR in MONGO SESSION STORE", err);
 })
 
@@ -69,7 +69,7 @@ const sessionOptions = {
     resave: false,
     saveUninitialized: true,
     cookie:{
-        expires : Date.now() + 7 * 24 * 60 * 60 * 1000,
+        expires : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true
     }
