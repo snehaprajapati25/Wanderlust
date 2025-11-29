@@ -2,6 +2,7 @@ if(process.env.NODE_ENV != "production"){
     require('dotenv').config();
 } 
 
+const cors = require('cors');
 const express = require('express'); 
 const app = express();
 const mongoose = require('mongoose');
@@ -22,6 +23,13 @@ const userRouter = require('./routes/user.js');
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
+// ✅ Enable CORS before routes
+app.use(cors({
+  origin: "http://localhost:5173", // Vite dev server
+  credentials: true // allow cookies/session
+}));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // For JSON data
 
@@ -87,6 +95,9 @@ app.use((req, res, next)=>{
     res.locals.currUser = req.user;
     next();
 })
+
+// ✅ mount the API router (JSON responses)
+app.use('/api/listings', require('./routes/apiListings'));
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
