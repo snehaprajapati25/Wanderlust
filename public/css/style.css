@@ -135,7 +135,8 @@ body {
 
 /* Show Page */
 .show-img {
-    height: 35vh;
+    height: 400px;
+    object-fit: cover;
 }
 
 .btns {
@@ -188,4 +189,17 @@ body {
     width: 85vh; 
 }
 
+/* For very tall screens (responsive mode or large desktops) */
+@media (min-height: 900px) {
+    .show-img {
+        height: 40vh;       /* Reduce height */
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    .show-img {
+        height: 30vh;       /* Smaller on phones */
+    }
+}
 
