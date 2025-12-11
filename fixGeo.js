@@ -7,7 +7,8 @@ require("dotenv").config(); // ✅ load .env file
 const geocodingClient = mbxGeocoding({ accessToken: process.env.MAP_TOKEN });
 
 // Connect to your database
-mongoose.connect("mongodb://127.0.0.1:27017/wanderlust")
+mongoose.connect(process.env.ATLASDB_URL)
+
     .then(() => console.log("MongoDB connected"))
     .catch((err) => console.log("MongoDB connection error:", err));
 
