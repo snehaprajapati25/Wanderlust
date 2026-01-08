@@ -61,7 +61,7 @@ const sessionSecret = process.env.SECRET || "thisisasecretfallback";
 
 const store = MongoStore.create({
   mongoUrl: dbUrl,
-  // remove crypto to avoid the null-length error
+  collectionName: "sessions_v2", // NEW COLLECTION
   touchAfter: 24 * 3600,
 });
 
