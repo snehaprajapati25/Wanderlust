@@ -85,6 +85,12 @@ const sessionOptions = {
 app.use(session(sessionOptions));
 app.use(flash());
 
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+});
+
 // Passport config
 app.use(passport.initialize());
 app.use(passport.session());
@@ -92,14 +98,6 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-// Locals middleware
-app.use((req, res, next) => {
-  res.locals.success = req.flash("success");
-  res.locals.error = req.flash("error");
-  res.locals.currUser = req.user;
-  next();
-});
 
 // Routes
 app.use("/listings", listingRouter);
@@ -111,7 +109,6 @@ app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
 });
 
-// Error handler
 app.use((err, req, res, next) => {
   console.error("ERROR HANDLER:", err);
 
@@ -120,9 +117,12 @@ app.use((err, req, res, next) => {
   }
 
   const statusCode = err.statusCode || err.status || 500;
-  const message = err.message || "Something went wrong";
+  const message =
+    typeof err.message === "string" && err.message.length > 0
+      ? err.message
+      : "Something went wrong";
 
-  return res.status(statusCode).render("error.ejs", { message });
+  res.status(statusCode).render("error.ejs", { message });
 });
 
 // Start server
