@@ -3,20 +3,40 @@
         #filters {
             display: flex;
             align-items: center;
-
+            justify-content: center;
         }
 
         .filter {
             text-align: center;
             margin-right: 2rem;
             margin-top: 2rem;
-            opacity: 0.7;
+            opacity: 0.8;
+            color: #6c757d;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .filter i {
+            font-size: 1.3rem;
+        }
+
+        .filter:hover {
+            opacity: 1;
+            color: #212529;
+            /* ✅ dark grey on hover */
+        }
+
+        .filter.active {
+            opacity: 1;
+            color: #000;
+            font-weight: 800;
+            border-bottom: 2px solid #000;
         }
 
         .filter p {
             font-size: .8rem;
             white-space: nowrap;
-            /* ✅ prevents wrapping to next line */
+            font-weight: 600;
         }
 
         .filter:hover {
@@ -39,58 +59,41 @@
     </style>
 
     <div id="filters">
-        <div class="filter">
+        <a class="filter <%= selectedCategory === 'Trending' ? 'active' : '' %>" href="/listings?category=Trending">
             <div><i class="fa-solid fa-fire"></i></div>
             <p>Trending</p>
-        </div>
-        <div class="filter">
+        </a>
+
+        <a class="filter <%= selectedCategory === 'Rooms' ? 'active' : '' %>" href="/listings?category=Rooms">
             <div><i class="fa-solid fa-bed"></i></div>
             <p>Rooms</p>
-        </div>
-        <div class="filter">
+        </a>
+
+        <a class="filter <%= selectedCategory === 'Cities' ? 'active' : '' %>" href="/listings?category=Cities">
             <div><i class="fa-solid fa-city"></i></div>
-            <p>Iconic Cities</p>
-        </div>
-        <div class="filter">
+            <p>Cities</p>
+        </a>
+
+        <a class="filter <%= selectedCategory === 'Mountains' ? 'active' : '' %>" href="/listings?category=Mountains">
             <div><i class="fa-solid fa-mountain"></i></div>
             <p>Mountains</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-brands fa-fort-awesome"></i></div>
-            <p>Castles</p>
-        </div>
-        <div class="filter">
+        </a>
+
+        <a class="filter <%= selectedCategory === 'Amazing Pools' ? 'active' : '' %>" href="/listings?category=AmazingPools">
             <div><i class="fa-solid fa-person-swimming"></i></div>
             <p>Amazing Pools</p>
-        </div>
-        <div class="filter">
+        </a>
+
+        <a class="filter <%= selectedCategory === 'Camping' ? 'active' : '' %>" href="/listings?category=Camping">
             <div><i class="fa-solid fa-campground"></i></div>
             <p>Camping</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-cow"></i></div>
-            <p>Farms</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-person-snowboarding"></i></div>
-            <p>Arctic</p>
-        </div>
-        <div class="filter">
+        </a>
+
+        <a class="filter <%= selectedCategory === 'Beach' ? 'active' : '' %>" href="/listings?category=Beach">
             <div><i class="fa-solid fa-umbrella-beach"></i></div>
             <p>Beach</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-ship"></i></div>
-            <p>Boats</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-shield-dog"></i></div>
-            <p>Pet Cabin</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-tree"></i></div>
-            <p>Tree House</p>
-        </div>
+        </a>
+
         <div class="tax-switch">
             <div class="form-check-reverse form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
@@ -98,6 +101,7 @@
             </div>
         </div>
     </div>
+
 
     <% if (allListings.length===0) { %>
         <div class="text-center mt-5">
@@ -127,6 +131,8 @@
                         <% } %>
                             <% } %>
             </div>
+
+
 
             <script>
                 let taxSwitch = document.getElementById("switchCheckDefault");

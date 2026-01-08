@@ -5,6 +5,92 @@ body {
     min-height: 100vh;
 }
 
+html.dark body {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+html.dark {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+html.dark .navbar,
+html.dark .f-info {
+  background-color: #1c1c1c;   /* same shade */
+  border-bottom: 1px solid #2a2a2a;
+}
+
+html.dark .f-info a {
+  color: #f1f1f1 !important;
+}
+
+/* Navbar links in dark mode */
+html.dark .nav-link {
+  color: #f1f1f1 !important;
+}
+
+/* Placeholder text */
+html.dark .search-inp::placeholder {
+  color: #bbbbbb;
+}
+
+html.dark .card {
+  background-color: #1f1f1f; 
+  color: #f1f1f1;
+}
+
+/* Remove image border/outline in dark mode */
+html.dark .listing-card {
+  background: transparent !important;
+}
+
+html.dark .card-img-top {
+  border-radius: 1rem;
+  display: block;
+}
+
+html.dark .form-control,
+html.dark .form-select {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-color: #444;
+}
+
+html.dark .btn-outline-dark {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+html.dark .btn-outline-dark:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+html.dark .filter {
+    color: #9ca3af;           /* grey */
+  opacity: 0.7;
+}
+
+html.dark .filter:hover {
+  color: #e5e7eb;           /* light grey */
+  opacity: 1;
+}
+
+html.dark .filter.active {
+  color: #ffffff !important;   /* WHITE */
+  opacity: 1;
+  border-bottom: 2px solid #ffffff;
+}
+
+html.dark .container {
+  background-color: transparent;
+}
+
+html.dark .card-hover-effect:hover {
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.6);
+}
+
 .container {
     flex: 1;
 }
@@ -44,7 +130,7 @@ body {
 
     .search-inp{
         border-radius: 25px !important;
-        padding: 0.5rem 3rem 0.5rem 3rem !important;
+        padding: 0.5rem 3rem !important;
         font-size: 1rem ;
     }
 
@@ -110,15 +196,14 @@ body {
 
 /* Card Effect */
 .card-hover-effect {
-    transition: transform 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card-hover-effect:hover {
-    transform: scale(0.95);
+    transform: scale(1.04);
     /* Zoom out slightly */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    /* Optional shadow for depth */
+  
 }
 
 /* New Page */
@@ -190,9 +275,15 @@ body {
 }
 
 /* For very tall screens (responsive mode or large desktops) */
-@media (min-height: 900px) {
+@media (min-width: 900px) {
     .show-img {
         height: 40vh;       /* Reduce height */
+    }
+    .search-form {
+    width: 670px;
+  }
+    .search-inp{
+        width: 100%;
     }
 }
 

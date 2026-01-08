@@ -23,34 +23,46 @@ const listingSchema = new Schema({
     price: Number,
     location: String,
     country: String,
+    category: {
+            type: String,
+            enum: [
+                "Trending",
+                "Rooms",
+                "Cities",
+                "Mountains",
+                "AmazingPools",
+                "Camping",
+                "Beach",
+            ]
+        },
     reviews: [
         {
             type: Schema.Types.ObjectId,
             ref: "Review"
         }
     ],
-    owner:{
+    owner: {
         type: Schema.Types.ObjectId,
         ref: "User",
     },
-    
-  geometry: {
-    type: {
-      type: String, // Don't do `{ location: { type: String } }`
-      enum: ['Point'], // 'location.type' must be 'Point'
-      required: true
-    },
-    coordinates: {
-      type: [Number],
-      required: true
+
+    geometry: {
+        type: {
+            type: String, // Don't do `{ location: { type: String } }`
+            enum: ['Point'], // 'location.type' must be 'Point'
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
     }
-  }
 
 })
 
-listingSchema.post("findOneAndDelete", async (lisitng) =>{
-    if(lisitng){
-        await Review.deleteMany({_id : {$in: lisitng.reviews}});
+listingSchema.post("findOneAndDelete", async (lisitng) => {
+    if (lisitng) {
+        await Review.deleteMany({ _id: { $in: lisitng.reviews } });
     }
 })
 

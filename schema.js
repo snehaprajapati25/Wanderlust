@@ -7,6 +7,18 @@ module.exports.listingSchema = Joi.object({
         location: Joi.string().required(),
         country: Joi.string().required(),
         price: Joi.number().required().min(0),
+        category: Joi.string()
+      .valid(
+        "Trending",
+        "Rooms",
+        "Cities",
+        "Mountains",
+        "AmazingPools",
+        "Camping",
+        "Beach",
+      )
+      .required(),
+
         image: Joi.object({
             url: Joi.string().allow("", null),
             filename: Joi.string().allow("", null)  // ✅ this is the fix
