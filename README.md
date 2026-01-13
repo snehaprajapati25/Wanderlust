@@ -121,3 +121,18 @@ cd wanderlust
 npm install
 npm start
 ```
+
+## 📸 Screenshots
+
+### Listings & Exploration
+![Listings Page](assets/screenshots/listings.png)
+
+### Listing Details
+![Listing Details](assets/screenshots/details.png)
+
+### Reviews & Location Map
+![Reviews and Map](assets/screenshots/map-reviews.png)
+
+### User Authentication
+![Signup Page](assets/screenshots/signup.png)
+
