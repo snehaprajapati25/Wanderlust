@@ -9,7 +9,7 @@ The project focuses on backend structure, access control, and scalable CRUD desi
 
 ## 🚀 Live Demo
 
-Link: https://wanderlust-68ne.onrender.com/listings
+Live: https://wanderlust-68ne.onrender.com/listings
 
 ## 🧩 Key Features
 🔐 Authentication & Authorization
@@ -91,11 +91,9 @@ Integrations & Tools:
 ```
 
 ## 🔒 Security & Validation
-
-- Server-side validation using Joi
-- Protected routes with middleware
-- Ownership checks to prevent unauthorized access
-- Secure session handling
+- Joi-based server-side validation
+- Protected routes with authentication middleware
+- Ownership-based access control
 
 ## 🧪 Current Scope vs Future Enhancements
 ✅ Implemented
